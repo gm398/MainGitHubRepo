@@ -1,0 +1,4 @@
+repository "Programming Test@Wix_Games@cloud"
+  path "/"
+    br "/main"
+    co "/main"
