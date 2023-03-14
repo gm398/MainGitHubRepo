@@ -9,8 +9,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6838155039506708927}
-  - component: {fileID: 8605009981840272247}
   - component: {fileID: 4548249287593808199}
+  - component: {fileID: 8605009981840272247}
   m_Layer: 0
   m_Name: RBGun
   m_TagString: Untagged
@@ -34,23 +34,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &8605009981840272247
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2197008331758440407}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 221107359977fa34f8b8a4246a48ebf2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  attacksPerSecond: 1
-  shotForce: 80
-  projectile: {fileID: 7585237228342244218, guid: 736a15a1e01acec489bf962fee2406b8, type: 3}
-  muzzel: {fileID: 8130100710862377428}
-  inheritVel: 1
 --- !u!114 &4548249287593808199
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -65,6 +48,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   attacksPerSecond: 1
   muzzel: {fileID: 8130100710862377428}
+--- !u!114 &8605009981840272247
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2197008331758440407}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 221107359977fa34f8b8a4246a48ebf2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shotForce: 80
+  projectile: {fileID: 7585237228342244218, guid: 736a15a1e01acec489bf962fee2406b8, type: 3}
 --- !u!1 &5187875553329289426
 GameObject:
   m_ObjectHideFlags: 0

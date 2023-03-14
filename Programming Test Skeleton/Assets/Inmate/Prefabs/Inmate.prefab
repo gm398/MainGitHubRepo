@@ -490,11 +490,13 @@ GameObject:
   m_Component:
   - component: {fileID: 469536}
   - component: {fileID: 9577410}
-  - component: {fileID: 5419624572877167464}
   - component: {fileID: 931055295006370634}
+  - component: {fileID: 3462595367810277930}
+  - component: {fileID: 7361367204962030073}
+  - component: {fileID: 2642024377504878758}
   m_Layer: 0
   m_Name: Inmate
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -526,7 +528,7 @@ Animator:
   m_GameObject: {fileID: 138080}
   m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: 03ee9464019754243871fdf6a4a8487c, type: 3}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 66d6df8f200e5174e949f46454680641, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0
   m_ApplyRootMotion: 1
@@ -536,32 +538,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &5419624572877167464
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 138080}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5ee1765bc0d774e75ba3b2df1feed101, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  animator: {fileID: 9577410}
-  bloodSplatParticlesPrefab: {fileID: 7347081340600095330, guid: 9ff9873228ed74925a359cbd3c3a5a5a, type: 3}
-  materials:
-  - {fileID: 2100000, guid: d285d108262f4c94ebce4edc15d3c3fa, type: 2}
-  - {fileID: 2100000, guid: 89f3cc4a81e904af993e5b2fe88e29d2, type: 2}
-  - {fileID: 2100000, guid: ad2b80b21954547fca4162ec7d7bc346, type: 2}
-  - {fileID: 2100000, guid: 6d71afffc1f1f44dea76127889913988, type: 2}
-  - {fileID: 2100000, guid: 566532b48af5143a68ca931ddca5ed8d, type: 2}
-  meshRenderer: {fileID: 13786054}
-  impact: {fileID: 8300000, guid: 3047b91f9cd42494c893507fed65b059, type: 3}
-  groans:
-  - {fileID: 8300000, guid: c176cdcf9e1704503a338fc328398952, type: 3}
-  - {fileID: 8300000, guid: 7733da081f63f4cbdb6e700e306f197e, type: 3}
-  - {fileID: 8300000, guid: f81cb6d5c40be4f4c914c9931a8a395f, type: 3}
 --- !u!82 &931055295006370634
 AudioSource:
   m_ObjectHideFlags: 0
@@ -658,6 +634,61 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &3462595367810277930
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 138080}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7447851f644f1b1468946f21f8d4fa2d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  skins:
+  - {fileID: 2100000, guid: d285d108262f4c94ebce4edc15d3c3fa, type: 2}
+  - {fileID: 2100000, guid: 89f3cc4a81e904af993e5b2fe88e29d2, type: 2}
+  - {fileID: 2100000, guid: ad2b80b21954547fca4162ec7d7bc346, type: 2}
+  - {fileID: 2100000, guid: 6d71afffc1f1f44dea76127889913988, type: 2}
+  - {fileID: 2100000, guid: 566532b48af5143a68ca931ddca5ed8d, type: 2}
+  bloodSplatter: {fileID: 7347081340600095330, guid: 9ff9873228ed74925a359cbd3c3a5a5a, type: 3}
+--- !u!136 &7361367204962030073
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 138080}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.4
+  m_Height: 1.5
+  m_Direction: 1
+  m_Center: {x: 0, y: 0.75, z: 0}
+--- !u!195 &2642024377504878758
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 138080}
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 0.5
+  m_Speed: 3.5
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 0
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 2
+  m_BaseOffset: 0
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4
 --- !u!1 &141780
 GameObject:
   m_ObjectHideFlags: 0

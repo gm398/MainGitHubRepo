@@ -48,7 +48,7 @@ public class PlayerWeaponController : MonoBehaviour
     void NextWeapon()
     {
         weapons.RemoveAll(item => item == null);
-        weapons.RemoveAll(item => item.GetComponent<RBGun>() == null);
+        weapons.RemoveAll(item => item.GetComponent<Gun>() == null);
         if(weapons.Count <= 0)
         { return; }
         currentWeaponIndex++;
