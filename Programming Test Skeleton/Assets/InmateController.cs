@@ -7,6 +7,8 @@ public class InmateController : MonoBehaviour
 {
     [SerializeField] Material[] skins;
     [SerializeField] GameObject bloodSplatter;
+
+    AudioSource[] hitSounds;
     Animator anim;
 
     NavMeshAgent agent;
@@ -20,6 +22,7 @@ public class InmateController : MonoBehaviour
         target = GameObject.FindGameObjectWithTag("Player").transform;
         agent = GetComponent<NavMeshAgent>();
         anim = GetComponent<Animator>();
+        hitSounds = GetComponents<AudioSource>();
     }
 
     // Update is called once per frame
@@ -41,9 +44,11 @@ public class InmateController : MonoBehaviour
     }
     public void Die()
     {
+
         isActive = false;
         agent.isStopped = true;
         this.GetComponent<CapsuleCollider>().enabled = false;
+        hitSounds[Random.Range(0, hitSounds.Length)].Play();
         anim.SetBool("isDead", true);
         Invoke("Deactivate", 3f);
     }

@@ -52,6 +52,7 @@ public class InmateSpawner : MonoBehaviour
         if (canSpawn)
         {
             enemyToSpawn.transform.position = location;
+            enemyToSpawn.SetActive(true);
             enemyToSpawn.GetComponent<InmateController>().Spawn();
         }
 
