@@ -381,6 +381,14 @@ PrefabInstance:
       propertyPath: maxSpeed
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 762004920406158884, guid: ee304bbe8e394f7438663d76d8953098, type: 3}
+      propertyPath: dodgeForce
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 762004920406158884, guid: ee304bbe8e394f7438663d76d8953098, type: 3}
+      propertyPath: dodgeDistance
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 1237073026220976841, guid: ee304bbe8e394f7438663d76d8953098, type: 3}
       propertyPath: body
       value: 

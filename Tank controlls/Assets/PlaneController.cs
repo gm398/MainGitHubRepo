@@ -41,7 +41,6 @@ public class PlaneController : MonoBehaviour
 
     void AddThrust()
     {
-        float
         if (forwardInput)
         { }
     }
