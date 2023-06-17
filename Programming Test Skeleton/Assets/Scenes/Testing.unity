@@ -236,7 +236,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &128052158
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -448,6 +448,10 @@ PrefabInstance:
     - target: {fileID: 138080, guid: 7cdfae6d55f483a4484606bf96026b2f, type: 3}
       propertyPath: m_Name
       value: Inmate (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 138080, guid: 7cdfae6d55f483a4484606bf96026b2f, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 469536, guid: 7cdfae6d55f483a4484606bf96026b2f, type: 3}
       propertyPath: m_RootOrder
@@ -752,6 +756,10 @@ PrefabInstance:
     - target: {fileID: 138080, guid: 7cdfae6d55f483a4484606bf96026b2f, type: 3}
       propertyPath: m_Name
       value: Inmate (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 138080, guid: 7cdfae6d55f483a4484606bf96026b2f, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 469536, guid: 7cdfae6d55f483a4484606bf96026b2f, type: 3}
       propertyPath: m_RootOrder
@@ -1095,6 +1103,10 @@ PrefabInstance:
     - target: {fileID: 138080, guid: 7cdfae6d55f483a4484606bf96026b2f, type: 3}
       propertyPath: m_Name
       value: Inmate
+      objectReference: {fileID: 0}
+    - target: {fileID: 138080, guid: 7cdfae6d55f483a4484606bf96026b2f, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 469536, guid: 7cdfae6d55f483a4484606bf96026b2f, type: 3}
       propertyPath: m_RootOrder

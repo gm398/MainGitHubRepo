@@ -20,11 +20,11 @@ public class PlayerCam : MonoBehaviour
         Cursor.lockState = CursorLockMode.Locked;
     }
 
-    private void Update()
+    private void LateUpdate()
     {
-        xRot -= Input.GetAxisRaw("Mouse Y") * sensitivity * Time.deltaTime;
+        xRot -= InputController.mouseY * sensitivity * Time.deltaTime;
         xRot = Mathf.Clamp(xRot, -90, 90);
-        float yRot = Input.GetAxisRaw("Mouse X") * sensitivity * Time.deltaTime;
+        float yRot = InputController.mouseX * sensitivity * Time.deltaTime;
         transform.localEulerAngles = new Vector3(xRot, 0, 0);
         body.Rotate(0, yRot, 0);
     }

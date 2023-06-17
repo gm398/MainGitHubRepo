@@ -18,6 +18,11 @@ public class lineFade : MonoBehaviour
     void Update()
     {
         color.a = Mathf.Lerp(color.a, 0, Time.deltaTime * speed);
-       
+        lr.startColor = color;
+        lr.endColor = color;
+       if(color.a < 0.01)
+        {
+            Destroy(this.gameObject);
+        }
     }
 }

@@ -53,7 +53,7 @@ public class IKFootSolver : MonoBehaviour
         if(lerp < 1)
         {
             Vector3 footPos = Vector3.Lerp(oldPos, newPos, lerp);
-            footPos.y += Mathf.Sin(lerp * Mathf.PI) * stepHeight;
+            footPos.y += (-Mathf.Pow(lerp, 5) + lerp) * stepHeight;
 
             currentPos = footPos;
             lerp += Time.fixedDeltaTime * stepSpeed;

@@ -83,11 +83,11 @@ public class PlayerMovement : MonoBehaviour
 
     void PlayerInput()
     {
-        hInput = Input.GetAxisRaw("Horizontal");
-        vInput = Input.GetAxisRaw("Vertical");
+        hInput = InputController.xAxis;
+        vInput = InputController.zAxis;
 
         weaponController.SetCanShoot(true);
-        if (Input.GetKey(KeyCode.LeftShift) && isGrounded)
+        if (InputController.sprint && isGrounded)
         {
             maxSpeed = maxSprintSpeed;
             weaponController.SetCanShoot(false);
@@ -101,7 +101,7 @@ public class PlayerMovement : MonoBehaviour
             maxSpeed = maxDefaultSpeed;
         }
 
-        if(Input.GetKey(KeyCode.Space) && canJump && isGrounded)
+        if(InputController.jump && canJump && isGrounded)
         {
             Jump();
         }

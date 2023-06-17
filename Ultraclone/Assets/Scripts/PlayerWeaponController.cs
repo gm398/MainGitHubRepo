@@ -13,7 +13,8 @@ public class PlayerWeaponController : MonoBehaviour
 
     bool
         canShoot = true,
-        isShooting = false;
+        isShooting = false,
+        isAiming = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -26,7 +27,29 @@ public class PlayerWeaponController : MonoBehaviour
     }
     private void FixedUpdate()
     {
-        if (isShooting)
+        if (isShooting && isAiming)
+        {
+            if(Physics.Raycast(
+                Camera.main.transform.GetChild(0).position, 
+                Camera.main.transform.forward,
+                out RaycastHit hit,
+                100,
+                Physics.AllLayers))
+                //QueryTriggerInteraction.Ignore))
+            {
+                Debug.Log(hit.transform.name);
+                weapons[currentWeaponIndex].Shoot(hit.transform);
+                
+            }
+            else
+            {
+                weapons[currentWeaponIndex].Shoot(
+                    Camera.main.transform.position + 
+                    Camera.main.transform.forward * 10);
+            }
+             
+        }
+        else if(isShooting)
         {
             weapons[currentWeaponIndex].Shoot();
         }
@@ -35,11 +58,16 @@ public class PlayerWeaponController : MonoBehaviour
     void Update()
     {
         isShooting = false;
-        if (Input.GetKey(KeyCode.Mouse0) && currentWeaponIndex >= 0 && canShoot)
+        isAiming = false;
+        if (InputController.secondaryFire)
+        {
+            isAiming = true;
+        }
+        if (InputController.primaryFire && currentWeaponIndex >= 0 && canShoot)
         {
             isShooting = true;
         }
-        if (Input.GetKeyDown(KeyCode.Q))
+        if (InputController.switchWeapon)
         {
             NextWeapon();
         }
