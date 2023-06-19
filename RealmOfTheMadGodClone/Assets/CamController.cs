@@ -32,7 +32,10 @@ public class CamController : MonoBehaviour
 
         Vector3 target = 
             follow.position + 
-            Vector3.ClampMagnitude(MouseAim.aimingAt - follow.position, maxAimOffset);
+            Vector3.ClampMagnitude(
+                MouseAim.aimingAt - follow.position, 
+                maxAimOffset);
+
         transform.position =
             Vector3.Lerp(
                 transform.position,

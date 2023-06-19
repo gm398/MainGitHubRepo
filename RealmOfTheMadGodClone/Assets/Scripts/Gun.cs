@@ -6,7 +6,8 @@ public class Gun : MonoBehaviour
 {
     [SerializeField]
     float
-        attacksPerSecond = 10;
+        attacksPerSecond = 10,
+        attacksPerShot = 1;
         
     [SerializeField]
     protected Transform
@@ -36,7 +37,12 @@ public class Gun : MonoBehaviour
         if (timeOfNextShot < Time.time)
         {
             timeOfNextShot = Time.time + 1 / attacksPerSecond;
-            ShotFired();
+
+            for(int i = 0; i < attacksPerShot; i++)
+            {
+                ShotFired();
+            }
+            
 
             if(onShoot != null)
                 onShoot();

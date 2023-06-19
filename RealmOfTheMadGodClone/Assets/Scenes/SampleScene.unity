@@ -733,6 +733,23 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1308292122 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 201340824896859381, guid: a5c967dc26e95974cbea863cbd490eb5, type: 3}
+  m_PrefabInstance: {fileID: 5051633273109484835}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1308292125
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1308292122}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3b94d9f45c5d73643851de3a2d65437d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1445193791
 GameObject:
   m_ObjectHideFlags: 0
@@ -847,7 +864,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   follow: {fileID: 875265040}
   rotationSpeed: 90
-  followSpeed: 10
+  followSpeed: 15
   maxAimOffset: 2
   scrollSpeed: 0.2
 --- !u!4 &1902070418
@@ -949,6 +966,63 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &5051633273109484835
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 201340824896859381, guid: a5c967dc26e95974cbea863cbd490eb5, type: 3}
+      propertyPath: m_Name
+      value: PowerUp
+      objectReference: {fileID: 0}
+    - target: {fileID: 1427912702459554341, guid: a5c967dc26e95974cbea863cbd490eb5, type: 3}
+      propertyPath: m_RootOrder
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 1427912702459554341, guid: a5c967dc26e95974cbea863cbd490eb5, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1427912702459554341, guid: a5c967dc26e95974cbea863cbd490eb5, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.56
+      objectReference: {fileID: 0}
+    - target: {fileID: 1427912702459554341, guid: a5c967dc26e95974cbea863cbd490eb5, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 3.14
+      objectReference: {fileID: 0}
+    - target: {fileID: 1427912702459554341, guid: a5c967dc26e95974cbea863cbd490eb5, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1427912702459554341, guid: a5c967dc26e95974cbea863cbd490eb5, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1427912702459554341, guid: a5c967dc26e95974cbea863cbd490eb5, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1427912702459554341, guid: a5c967dc26e95974cbea863cbd490eb5, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1427912702459554341, guid: a5c967dc26e95974cbea863cbd490eb5, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1427912702459554341, guid: a5c967dc26e95974cbea863cbd490eb5, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1427912702459554341, guid: a5c967dc26e95974cbea863cbd490eb5, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: a5c967dc26e95974cbea863cbd490eb5, type: 3}
 --- !u!1001 &5281226672763022430
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -956,6 +1030,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 75391466826757181, guid: 77608fcb955923048b7a879220113142, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5281226673636823118, guid: 77608fcb955923048b7a879220113142, type: 3}
       propertyPath: m_RootOrder
       value: 3
