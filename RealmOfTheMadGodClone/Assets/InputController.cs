@@ -30,6 +30,8 @@ public class InputController : MonoBehaviour
     public static float xAxis, zAxis;
     public static float mouseX, mouseY;
 
+    public static float mouseScroll;
+
     bool isInputsEnabled = true;
     // Update is called once per frame
     void Update()
@@ -63,7 +65,7 @@ public class InputController : MonoBehaviour
         mouseY = Input.GetAxisRaw("Mouse Y");
         mouseX = Input.GetAxisRaw("Mouse X");
 
-        
+        mouseScroll = Input.mouseScrollDelta.y;
 
     }
 

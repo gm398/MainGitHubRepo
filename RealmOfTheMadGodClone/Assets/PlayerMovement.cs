@@ -18,7 +18,6 @@ public class PlayerMovement : MonoBehaviour
 
     bool rolling = false;
     Vector3 rollDirection;
-    public Mesh mesh;
     // Start is called before the first frame update
     void Start()
     {
@@ -29,40 +28,45 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-    // Update is called once per frame
-    void Update()
+    private void FixedUpdate()
     {
         Vector3 lookAt = MouseAim.aimingAt;
         lookAt.y = transform.position.y;
         transform.LookAt(lookAt);
+    
+        
         if (!rolling)
         {
             
             Vector3 direction = InputController.xAxis * camHolder.right + InputController.zAxis * camHolder.forward;
             direction = direction.normalized;
-            rb.AddForce(direction * accelaration * 100 * Time.deltaTime);
-            LimitVelocity();
+            rb.AddForce(direction * accelaration * 100 * Time.fixedDeltaTime);
+            
 
             if (Input.GetKey(KeyCode.Space) && rb.velocity.magnitude > .5f)
             {
                 rolling = true;
                 rollDirection = rb.velocity.normalized * 5000;
                 Invoke("StopRoll", 1);
-
-                SwitchMesh();
+                
             }
         }
         else
         {
-            rb.AddForce(rollDirection * Time.deltaTime);
+            rb.AddForce(rollDirection * Time.fixedDeltaTime);
             
         }
     }
-
+    private void Update()
+    {
+        if (!rolling)
+        {
+            LimitVelocity();
+        }
+    }
     void StopRoll()
     {
         rolling = false;
-        SwitchMesh();
     }
     void LimitVelocity()
     {
@@ -73,11 +77,5 @@ public class PlayerMovement : MonoBehaviour
 
 
 
-    void SwitchMesh()
-    {
-        MeshFilter mr = GetComponentInChildren<MeshFilter>();
-        Mesh temp = mr.mesh;
-        mr.mesh = mesh;
-        mesh = temp;
-    }
+  
 }

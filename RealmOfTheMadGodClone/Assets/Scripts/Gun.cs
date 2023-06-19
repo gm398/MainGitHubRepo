@@ -7,6 +7,7 @@ public class Gun : MonoBehaviour
     [SerializeField]
     float
         attacksPerSecond = 10;
+        
     [SerializeField]
     protected Transform
         muzzel;
@@ -18,6 +19,11 @@ public class Gun : MonoBehaviour
 
     protected Transform target;
     protected Vector3 targetPoint;
+    [SerializeField]
+    [Range(0, 1)]
+    protected float spreadRange = 0;
+    [SerializeField]
+    protected float movementEffect = 100;//lower number = higher effect
     private void Update()
     {
         if (InputController.primaryFire)

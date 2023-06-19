@@ -66,8 +66,7 @@ public class Projectile : MonoBehaviour
     {
         if (explosion != null)
         {
-
-            Instantiate(explosion, point, transform.rotation);
+            Instantiate(explosion, point, transform.rotation).transform.localScale = transform.localScale;
         }
         if (particles != null)
         {
