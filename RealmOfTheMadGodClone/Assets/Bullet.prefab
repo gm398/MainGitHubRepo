@@ -182,7 +182,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sounds: []
-  pitchVariationRange: 0.2
+  pitchVariationRange: 0.5
 --- !u!82 &-4903265273344245983
 AudioSource:
   m_ObjectHideFlags: 0
@@ -195,7 +195,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 89cfd49677011664fa54fffd9e7c6b82, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.6
   m_Pitch: 1
   Loop: 0
   Mute: 0

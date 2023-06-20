@@ -481,8 +481,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6bbae7017eaa4c14995435cdbdfe4405, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  barrels: {fileID: 3378256371548467056}
-  numOfBarrels: 3
+  barrels: {fileID: 4759018542890886524}
+  numOfBarrels: 6
   rotateClockwise: 1
 --- !u!1 &6918845913010700443
 GameObject:
@@ -734,7 +734,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3942548165356432095, guid: af7e9d02cbeb2664f97207efae7be326, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6656317857650687165, guid: af7e9d02cbeb2664f97207efae7be326, type: 3}
       propertyPath: m_RootOrder
@@ -852,7 +852,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6573419983147511946, guid: c136d52c80a1e7240a1e6b9521f4b305, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c136d52c80a1e7240a1e6b9521f4b305, type: 3}
