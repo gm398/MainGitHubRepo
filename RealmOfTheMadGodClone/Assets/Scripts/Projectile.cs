@@ -4,9 +4,14 @@ using UnityEngine;
 
 public class Projectile : MonoBehaviour
 {
+
+    
     [SerializeField]
     float
         lifeTime = 5;
+
+    float
+        damage = 5f;
 
     [SerializeField]
     GameObject
@@ -22,6 +27,10 @@ public class Projectile : MonoBehaviour
     float guidenceForce = 10f;
     Transform target;
     Vector3 targetPoint = Vector3.zero;
+
+
+    [SerializeField]
+    bool hitTriggers = false;
     // Start is called before the first frame update
     void Awake()
     {
@@ -43,9 +52,9 @@ public class Projectile : MonoBehaviour
     
     private void OnTriggerEnter(Collider other)
     {
-        if (other.isTrigger)
+        if (other.isTrigger && !hitTriggers)
         { return; }
-        Collide(transform.position);
+        Collide(transform.position, other.gameObject);
     }
 
     public void CheckCollisions()
@@ -56,13 +65,13 @@ public class Projectile : MonoBehaviour
             rb.velocity, 
             out RaycastHit hit, 
             rb.velocity.magnitude * Time.fixedDeltaTime, 
-            Physics.AllLayers, 
-            QueryTriggerInteraction.Ignore))
+            Physics.AllLayers,
+            hitTriggers ? QueryTriggerInteraction.Collide : QueryTriggerInteraction.Ignore))
         {
-            Collide(hit.point);
+            Collide(hit.point, hit.transform.gameObject);
         }
     }
-    void Collide(Vector3 point)
+    void Collide(Vector3 point, GameObject objectHit)
     {
         if (explosion != null)
         {
@@ -74,6 +83,13 @@ public class Projectile : MonoBehaviour
             particles.GetComponent<ParticleSystem>().Stop();
             Destroy(particles, 2f);
         }
+
+        Health h = objectHit.GetComponent<Health>();
+        if(h != null)
+        {
+            h.TakeDamage(damage);
+        }
+
         Destroy(this.gameObject);
     }
 
@@ -97,6 +113,10 @@ public class Projectile : MonoBehaviour
         this.targetPoint = targetPoint;
     }
 
+    public void SetDamage(float damage)
+    {
+        this.damage = damage;
+    }
     
 
 }

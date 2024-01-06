@@ -10,10 +10,15 @@ public class Gun : MonoBehaviour
         attacksPerShot = 1;
         
     [SerializeField]
+    protected float
+        damage = 5f;
+
+    [SerializeField]
     protected Transform
         muzzel;
     float
         timeOfNextShot = 0;
+
     public delegate void Shot();
     public event Shot onShoot;
 
@@ -66,5 +71,18 @@ public class Gun : MonoBehaviour
 
     }
 
+
+    public void AddAttackPerShot(int extraShots)
+    {
+        attacksPerShot += extraShots;
+    }
+    public void IncreaseAttacksPerSecond(float amount)
+    {
+        attacksPerSecond += amount;
+    }
+    public void IncreaseDamage(float damageIncrease)
+    {
+        this.damage += damageIncrease;
+    }
     public float GetAttacksPerSecond() { return attacksPerSecond; }
 }

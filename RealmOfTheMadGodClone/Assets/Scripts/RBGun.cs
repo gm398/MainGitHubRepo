@@ -18,7 +18,7 @@ public class RBGun : Gun
         GameObject b = Instantiate(projectile, muzzel.position, muzzel.rotation);
         b.transform.localScale = transform.localScale;
         Rigidbody rb = b.GetComponent<Rigidbody>();
-
+        
         Vector3 playerVel = Vector3.zero;
         Rigidbody charRB = GetComponentInParent<Rigidbody>();
         if(charRB != null)
@@ -38,6 +38,7 @@ public class RBGun : Gun
         Projectile p = b.GetComponent<Projectile>();
         if (p != null)
         {
+            p.SetDamage(damage);
             if (target != null)
             {
                 p.SetTarget(target);
