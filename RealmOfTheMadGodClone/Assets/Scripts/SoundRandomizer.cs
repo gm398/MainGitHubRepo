@@ -17,7 +17,7 @@ public class SoundRandomizer : MonoBehaviour
         {
             return;
         }
-
+        Vector2 x = Random.insideUnitCircle;
         int randNum = Random.Range(0, sounds.Length);
         float pitchVariation = Random.Range(-pitchVariationRange, pitchVariationRange);
         sounds[randNum].pitch += pitchVariation;
