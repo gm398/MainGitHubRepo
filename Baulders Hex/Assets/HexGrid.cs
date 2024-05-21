@@ -53,7 +53,7 @@ public class HexGrid : MonoBehaviour
                     if (q + r + s == 0)
                     {
                         
-                        if (GetHex(new Vector3(r, q, s) + centerCoords, out HexTile addition))
+                        if (GetHex(new Vector3(q, r, s) + centerCoords, out HexTile addition))
                         {
                             hexList.Add(addition);
                             //Debug.Log("hex added");
