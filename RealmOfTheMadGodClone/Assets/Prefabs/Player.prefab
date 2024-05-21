@@ -437,6 +437,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_Character_Female_01
       objectReference: {fileID: 0}
+    - target: {fileID: 1268560294735226, guid: 68617247be1cad64d8dfe7e3cbbb3174, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4028330339877502, guid: 68617247be1cad64d8dfe7e3cbbb3174, type: 3}
       propertyPath: m_LocalRotation.w
       value: -0.10539201
@@ -1054,6 +1058,10 @@ PrefabInstance:
       value: Gun
       objectReference: {fileID: 0}
     - target: {fileID: 5772896118485686533, guid: 0f850bfb57ae7354394dcce17bd47a65, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6918845913010700443, guid: 0f850bfb57ae7354394dcce17bd47a65, type: 3}
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
