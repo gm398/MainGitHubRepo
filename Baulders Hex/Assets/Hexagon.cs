@@ -33,7 +33,7 @@ public class Hexagon
             float z = coordinates.z;
 
             QCoordinate = Mathf.RoundToInt(-z / .866f);
-            RCoordinate = Mathf.RoundToInt((-QCoordinate + x / .5f) / 2);
+            RCoordinate = Mathf.RoundToInt((-QCoordinate + x / .5f) / 2f);
         }
         else
         {

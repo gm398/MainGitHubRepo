@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class HexTile : MonoBehaviour
 {
     #region Properties
@@ -17,9 +18,9 @@ public class HexTile : MonoBehaviour
     {
         get
         {
-            if (_worldCoords != default) return _worldCoords;
+           // if (_worldCoords != default) return _worldCoords;
             _worldCoords.z = Hexagon.QCoordinate * -.866f;
-            _worldCoords.x = (2 * Hexagon.RCoordinate + Hexagon.SCoordinate) * .5f;
+            _worldCoords.x = (2 * Hexagon.RCoordinate + Hexagon.QCoordinate) * .5f;
             _worldCoords.y = 0;
             return _worldCoords;
         }
