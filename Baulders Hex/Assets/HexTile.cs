@@ -1,30 +1,39 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class HexTile : Hexagon
+public class HexTile : MonoBehaviour
 {
     #region Properties
-    
+
+    public GameObject TileGameObjectVisuals;
+    public Transform TileTopPosition;
+    [SerializeField]
+    public Hexagon Hexagon;
+
+
+    public Vector3 WorldCoords
+    {
+        get
+        {
+            if (_worldCoords != default) return _worldCoords;
+            _worldCoords.z = Hexagon.QCoordinate * -.866f;
+            _worldCoords.x = (2 * Hexagon.RCoordinate + Hexagon.SCoordinate) * .5f;
+            _worldCoords.y = 0;
+            return _worldCoords;
+        }
+    }
+
+    private Vector3 _worldCoords;
+
     #endregion
 
 
-}
-
-public class game : MonoBehaviour
-{
-    public game()
+    public void SetWorldPosision()
     {
-       
-    }
-    private void Start()
-    {
-        HexGrid = new List<HexTile>();
-
-    }
-    private List<HexTile> HexGrid;
-    private void Update()
-    {
-        
+        this.transform.position = WorldCoords;
     }
 }
+
+

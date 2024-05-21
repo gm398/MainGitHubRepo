@@ -1,7 +1,9 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[Serializable]
 public class Hexagon
 {
 
@@ -10,6 +12,7 @@ public class Hexagon
     public int RCoordinate { get; private set; }
     public int SCoordinate => -QCoordinate - RCoordinate;
 
+    [field: SerializeField]
     public Vector3 QRSCoordinates => new Vector3(QCoordinate, RCoordinate, SCoordinate);
     #endregion
 
@@ -22,10 +25,22 @@ public class Hexagon
         RCoordinate = r;
     }
 
-    public Hexagon(Vector3 QRSCoordinates)
+    public Hexagon(Vector3 coordinates, bool isWorldCoords = false)
     {
-        QCoordinate = (int)QRSCoordinates.x;
-        RCoordinate = (int)QRSCoordinates.y;
+        if (isWorldCoords)
+        {
+            float x = coordinates.x;
+            float z = coordinates.z;
+
+            QCoordinate = Mathf.RoundToInt(-z / .866f);
+            RCoordinate = Mathf.RoundToInt((-QCoordinate + x / .5f) / 2);
+        }
+        else
+        {
+            QCoordinate = (int)coordinates.x;
+            RCoordinate = (int)coordinates.y;
+        }
+        
     }
     #endregion
 
@@ -63,7 +78,7 @@ public class Hexagon
 
     #region Static Methods
 
-    static List<Hexagon> GetSurroundingCoords()
+    public static List<Hexagon> GetSurroundingCoords()
     {
         List<Hexagon> neighbors = new List<Hexagon>();
         neighbors.Add(new Hexagon(new Vector3(1, 0, -1)));
@@ -76,7 +91,7 @@ public class Hexagon
         return neighbors;
     }
 
-    static int DistanceBetweenHexs(Hexagon hex1, Hexagon hex2)
+    public static int DistanceBetweenHexs(Hexagon hex1, Hexagon hex2)
     {
         if (hex1 == null || hex2 == null)
             return 0;
