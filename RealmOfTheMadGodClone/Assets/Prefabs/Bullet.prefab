@@ -140,6 +140,7 @@ MonoBehaviour:
   particles: {fileID: 8134743278861551695}
   guided: 0
   guidenceForce: 10
+  hitTriggers: 0
 --- !u!54 &1847651904484195406
 Rigidbody:
   m_ObjectHideFlags: 0
