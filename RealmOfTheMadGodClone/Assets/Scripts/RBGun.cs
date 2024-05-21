@@ -36,6 +36,7 @@ public class RBGun : Gun
 
 
         Projectile p = b.GetComponent<Projectile>();
+        
         if (p != null)
         {
             p.SetDamage(damage);

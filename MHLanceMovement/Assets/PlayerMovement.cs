@@ -7,12 +7,30 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField]
     float
         maxSpeed = 10f,
-        rotationSpeed = 1f,//time to turn 360 in seconds
-        groundDrag = 1f,
         accelaration = 10f,
-        rollForce = 500f,
-        rollDuration = .3f;
+        rollPower = 500f,
+        rollDuration = .2f;
 
+
+    [SerializeField]
+    float groundDrag
+    {
+        get
+        {
+            return _groundDrag;
+        }
+        set
+        {
+            if(_groundDrag != value)
+            {
+                _groundDrag = value;
+                groundDrag = value;
+                rb.drag = value;
+            }
+        }
+    }
+    [SerializeField]
+    private float _groundDrag;
     [SerializeField]
     Transform
         camHolder;
@@ -27,27 +45,31 @@ public class PlayerMovement : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         if(camHolder == null)
         {
-            camHolder = GameObject.FindGameObjectWithTag("CamHolder")?.transform ?? null; ;
+            camHolder = GameObject.FindGameObjectWithTag("CamHolder").transform;
         }
+        rb.drag = groundDrag;
     }
 
     private void FixedUpdate()
     {
-        RotateTowardsMouse();
+        Vector3 lookAt = MouseAim.aimingAt;
+        lookAt.y = transform.position.y;
+        transform.LookAt(lookAt);
     
         
         if (!rolling)
         {
             
-            Vector3 direction = InputController.xAxis * (camHolder?.right ?? Vector3.right) + InputController.zAxis * (camHolder?.forward ?? Vector3.forward);
+            Vector3 direction = InputController.xAxis * camHolder.right + InputController.zAxis * camHolder.forward;
             direction = direction.normalized;
             rb.AddForce(direction * accelaration * 100 * Time.fixedDeltaTime);
-            
+            LimitVelocity();
 
             if (Input.GetKey(KeyCode.Space) && rb.velocity.magnitude > .5f)
             {
                 rolling = true;
-                rollDirection = rb.velocity.normalized * rollForce;
+                rollDirection = rb.velocity.normalized * rollPower;
+                rb.drag = 0;
                 Invoke("StopRoll", rollDuration);
                 
             }
@@ -68,6 +90,7 @@ public class PlayerMovement : MonoBehaviour
     void StopRoll()
     {
         rolling = false;
+        rb.drag = groundDrag;
     }
     void LimitVelocity()
     {
@@ -76,13 +99,7 @@ public class PlayerMovement : MonoBehaviour
         rb.velocity = new Vector3(speed.x, rb.velocity.y, speed.y);
     }
 
-    void RotateTowardsMouse()
-    {
-        Vector3 lookAt = MouseAim.aimingAt - transform.position;
-        lookAt.y = transform.position.y;
-        
 
-        Quaternion targetRotation = Quaternion.LookRotation(lookAt);
-        transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, (360 / rotationSpeed) * Time.fixedDeltaTime);
-    }
+
+  
 }

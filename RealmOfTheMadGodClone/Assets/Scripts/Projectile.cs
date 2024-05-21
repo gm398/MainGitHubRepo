@@ -24,7 +24,8 @@ public class Projectile : MonoBehaviour
     [SerializeField]
     bool guided = false;
     [SerializeField]
-    float guidenceForce = 10f;
+    float guidenceForce = 10f,
+        maxVelocity = 20f;
     Transform target;
     Vector3 targetPoint = Vector3.zero;
 
@@ -47,6 +48,8 @@ public class Projectile : MonoBehaviour
             GoToTarget();
         }
         CheckCollisions();
+        rb.velocity = Vector3.ClampMagnitude(rb.velocity, maxVelocity);
+        
     }
 
     

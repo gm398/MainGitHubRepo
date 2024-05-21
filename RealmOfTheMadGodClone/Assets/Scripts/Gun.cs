@@ -34,6 +34,14 @@ public class Gun : MonoBehaviour
     {
         if (InputController.primaryFire)
         {
+            if (InputController.secondaryFire)
+            {
+                if(Physics.Raycast(muzzel.position, muzzel.forward, out RaycastHit hitInfo))
+                {
+                    Shoot(hitInfo.transform);
+                    return;
+                }
+            }
             Shoot();
         }
     }

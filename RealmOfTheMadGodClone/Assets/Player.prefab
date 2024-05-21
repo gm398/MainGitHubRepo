@@ -334,6 +334,8 @@ MonoBehaviour:
   maxSpeed: 10
   groundDrag: 5
   accelaration: 50
+  rollForce: 5000
+  rollDuration: 0.3
   camHolder: {fileID: 0}
 --- !u!54 &5281226673636823120
 Rigidbody:
