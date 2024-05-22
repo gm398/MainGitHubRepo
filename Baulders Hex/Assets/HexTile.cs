@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-
+[SelectionBase]
 public class HexTile : MonoBehaviour
 {
     #region Properties
@@ -12,6 +12,11 @@ public class HexTile : MonoBehaviour
     public Transform TileTopPosition;
     [SerializeField]
     public Hexagon Hexagon;
+
+    public bool IsOccupied => false;
+    public bool IsTraversable => true;
+    public float Height => transform.position.y;
+    public float MoveDifficulty => 1;
 
 
     public Vector3 WorldCoords

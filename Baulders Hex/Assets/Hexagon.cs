@@ -8,8 +8,9 @@ public class Hexagon
 {
 
     #region Properties
-    public int QCoordinate { get; private set; }
-    public int RCoordinate { get; private set; }
+
+    public int QCoordinate;
+    public int RCoordinate;
     public int SCoordinate => -QCoordinate - RCoordinate;
 
     [field: SerializeField]

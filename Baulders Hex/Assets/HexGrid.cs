@@ -34,6 +34,10 @@ public class HexGrid : MonoBehaviour
         }
         return neighbours; 
     }
+    public List<HexTile> GetNeighbours(Hexagon startHex)
+    {
+        return GetNeighbours(hexDictionary[startHex.QRSCoordinates]); 
+    }
 
     public bool GetHex(Vector3 RQS, out HexTile hex)
     {
