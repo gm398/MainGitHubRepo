@@ -9,10 +9,8 @@ public class HexGrid : MonoBehaviour
     Dictionary<Vector3, HexTile> hexDictionary = new Dictionary<Vector3, HexTile>();
     [SerializeField] GameObject[] mapPieces;
     
-
     
-    // Start is called before the first frame update
-    private void Awake()
+    public void InitializeGrid()
     {
         hexDictionary = new Dictionary<Vector3, HexTile>();
         GetHexesFromGameobject();
@@ -100,8 +98,6 @@ public class HexGrid : MonoBehaviour
                 foreach (HexTile part in parts)
                 {
                     hexs.Add(part);
-                    part.transform.SetParent(this.transform);
-                    
                 }
             }
         }
