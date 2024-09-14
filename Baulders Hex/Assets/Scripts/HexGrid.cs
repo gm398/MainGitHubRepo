@@ -2,18 +2,30 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class HexGrid : MonoBehaviour
+public class HexGrid
 {
-    [SerializeField] List<HexTile> hexs;
+    List<HexTile> hexs;
     List<HexTile> visibleHexs;
-    Dictionary<Vector3, HexTile> hexDictionary = new Dictionary<Vector3, HexTile>();
-    [SerializeField] GameObject[] mapPieces;
-    
-    
-    public void InitializeGrid()
+    public Dictionary<Vector3, HexTile> HexDictionary = new Dictionary<Vector3, HexTile>();
+
+    private static HexGrid _hexGridInstance;
+    public static HexGrid HexGridInstance
     {
-        hexDictionary = new Dictionary<Vector3, HexTile>();
-        GetHexesFromGameobject();
+        get
+        {
+            if (_hexGridInstance == null)
+            {
+                _hexGridInstance = new HexGrid();
+            }
+
+            return _hexGridInstance;
+        }
+    }
+
+    public void InitializeGrid(List<GameObject> mapPieces)
+    {
+        HexDictionary = new Dictionary<Vector3, HexTile>();
+        GetHexesFromGameobject(mapPieces);
         AddHexsToDictionary();
     }
    
@@ -28,18 +40,18 @@ public class HexGrid : MonoBehaviour
         List<HexTile> neighbours = new List<HexTile>();
         foreach (Hexagon hexagon in startHex.Hexagon.NeighborCoordiates())
         {
-            if(hexDictionary.TryGetValue(hexagon.QRSCoordinates, out var hexTile)) neighbours.Add(hexTile);
+            if(HexDictionary.TryGetValue(hexagon.QRSCoordinates, out var hexTile)) neighbours.Add(hexTile);
         }
         return neighbours; 
     }
     public List<HexTile> GetNeighbours(Hexagon startHex)
     {
-        return GetNeighbours(hexDictionary[startHex.QRSCoordinates]); 
+        return GetNeighbours(HexDictionary[startHex.QRSCoordinates]); 
     }
 
     public bool GetHex(Vector3 RQS, out HexTile hex)
     {
-        return hexDictionary.TryGetValue(RQS, out hex);
+        return HexDictionary.TryGetValue(RQS, out hex);
     }
 
     public List<HexTile> GetHexesInRange(int range, HexTile center)
@@ -78,7 +90,7 @@ public class HexGrid : MonoBehaviour
             {
                 hex.Hexagon = new Hexagon(hex.transform.position, true);
                 //hex.GetHexCoordinates().MoveToGridCords();
-                if (hexDictionary.TryAdd(hex.Hexagon.QRSCoordinates, hex))
+                if (HexDictionary.TryAdd(hex.Hexagon.QRSCoordinates, hex))
                 {
                     hex.SetWorldPosision();
                 }
@@ -88,7 +100,7 @@ public class HexGrid : MonoBehaviour
 
 
     //takes hexs out of a parent, usually a map prefab and adds them to the hex list
-    void GetHexesFromGameobject()
+    public void GetHexesFromGameobject(List<GameObject> mapPieces)
     {
         foreach (GameObject piece in mapPieces)
         {
@@ -105,7 +117,7 @@ public class HexGrid : MonoBehaviour
 
     public Dictionary<Vector3, HexTile> GetHexDictionary()
     {
-        return hexDictionary;
+        return HexDictionary;
     }
 
 }
