@@ -29,6 +29,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4027991069616952393}
   - {fileID: 1870792968919503252}
@@ -130,17 +131,25 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3526865773315527951, guid: 8bdb23c228531cd4ea8a788d9c043eef, type: 3}
+      propertyPath: shotsPerSec
+      value: 20
+      objectReference: {fileID: 0}
     - target: {fileID: 4806735440055961583, guid: 8bdb23c228531cd4ea8a788d9c043eef, type: 3}
       propertyPath: clampRotation
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4806735440055961583, guid: 8bdb23c228531cd4ea8a788d9c043eef, type: 3}
       propertyPath: rotationSpeed
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 4806735440055961583, guid: 8bdb23c228531cd4ea8a788d9c043eef, type: 3}
+      propertyPath: shotPrecision
       value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 4806735440055961583, guid: 8bdb23c228531cd4ea8a788d9c043eef, type: 3}
       propertyPath: elevationSpeed
-      value: 20
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 6850169583185855920, guid: 8bdb23c228531cd4ea8a788d9c043eef, type: 3}
       propertyPath: m_Name

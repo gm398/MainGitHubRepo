@@ -11,7 +11,8 @@ public class Gun : MonoBehaviour
     [SerializeField]
     float
         force = 20,
-        shotsPerSec = 5;
+        shotsPerSec = 5,
+        bulletLifetime = 3f;
     float
         timeOfNextShot = 0;
     [SerializeField]
@@ -50,7 +51,7 @@ public class Gun : MonoBehaviour
             Rigidbody rb = b.GetComponent<Rigidbody>();
             rb.AddForce(muzzel.forward * force, ForceMode.Impulse);
             timeOfNextShot = Time.time + 1 / shotsPerSec;
-            //Destroy(b, 3f);
+            Destroy(b, bulletLifetime);
         }
     }
 }

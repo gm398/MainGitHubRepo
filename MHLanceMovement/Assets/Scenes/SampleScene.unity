@@ -537,7 +537,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5084114616494187519, guid: 89aa5962ebb20f441ac98a7a2ba11f6d, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.675
+      value: 0.431
       objectReference: {fileID: 0}
     - target: {fileID: 5084114616494187519, guid: 89aa5962ebb20f441ac98a7a2ba11f6d, type: 3}
       propertyPath: m_LocalPosition.z
@@ -575,6 +575,14 @@ PrefabInstance:
       propertyPath: camHolder
       value: 
       objectReference: {fileID: 938192875}
+    - target: {fileID: 7717820198239411454, guid: 89aa5962ebb20f441ac98a7a2ba11f6d, type: 3}
+      propertyPath: _groundDrag
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7717820198239411454, guid: 89aa5962ebb20f441ac98a7a2ba11f6d, type: 3}
+      propertyPath: accelaration
+      value: 50
+      objectReference: {fileID: 0}
     - target: {fileID: 7721296034377061869, guid: 89aa5962ebb20f441ac98a7a2ba11f6d, type: 3}
       propertyPath: m_Name
       value: Player

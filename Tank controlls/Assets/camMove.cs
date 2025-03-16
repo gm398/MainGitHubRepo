@@ -58,8 +58,8 @@ public class camMove : MonoBehaviour
         TankMovement();
         transform.position = player.transform.position;
 
-        float yRot = Input.GetAxis("Mouse X") * sensitivity * Time.deltaTime;
-        float xRot = Input.GetAxis("Mouse Y") * sensitivity * Time.deltaTime;
+        float yRot = Input.GetAxis("Mouse X") * sensitivity * Time.fixedDeltaTime;
+        float xRot = Input.GetAxis("Mouse Y") * sensitivity * Time.fixedDeltaTime;
         transform.Rotate(0, yRot, 0);
         foreach(Transform t in turrets)
         {

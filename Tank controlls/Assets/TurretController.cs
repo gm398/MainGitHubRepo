@@ -16,7 +16,8 @@ public class TurretController : MonoBehaviour
         elevationSpeed = 10,
         maxRotLeft = 90,
         maxRotRight = 90,
-        rotationSpeed = 10;
+        rotationSpeed = 10,
+        shotPrecision = 2f;
     [SerializeField]
     bool
         clampRotation = true;
@@ -62,9 +63,9 @@ public class TurretController : MonoBehaviour
         float angleBetween = Vector3.SignedAngle(transform.forward, dir, transform.up);
         //Debug.Log(dir);
         direction = Mathf.Sign(angleBetween);
-        if(Mathf.Abs(angleBetween) < 1)
+        if(Mathf.Abs(angleBetween) < shotPrecision)
         {
-            direction = angleBetween;
+            //direction = angleBetween;
             isAvailable = true;
         }else{
             isAvailable = false;
@@ -86,7 +87,7 @@ public class TurretController : MonoBehaviour
     void RotateTurret(float degree)
     {
         currentRotation += degree * rotationSpeed * Time.deltaTime;
-        if (!clampRotation)
+        if (clampRotation)
         {
             currentRotation = Mathf.Clamp(currentRotation, maxRotLeft + originalRotation, maxRotRight + originalRotation);
         }

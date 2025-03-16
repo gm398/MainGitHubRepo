@@ -299,6 +299,7 @@ MonoBehaviour:
   smoke: {fileID: 0}
   force: 40
   shotsPerSec: 10
+  bulletLifetime: 1
   muzzel: {fileID: 7101277342448266951}
   rotateBarrel: {fileID: 1299770610201396394}
   numOfBarrels: 6

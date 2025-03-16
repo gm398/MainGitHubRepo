@@ -11,6 +11,19 @@ public class PlayerMovement : MonoBehaviour
         rollPower = 500f,
         rollDuration = .2f;
 
+    PlayerController _playerController;
+    PlayerController PlayerController
+    {
+        get
+        {
+            _playerController ??= GetComponent<PlayerController>();
+            if (_playerController == null)
+            {
+                Debug.Log("PlayerController not attached");
+            }
+            return _playerController;
+        }
+    }
 
     [SerializeField]
     float groundDrag
@@ -50,8 +63,9 @@ public class PlayerMovement : MonoBehaviour
         rb.drag = groundDrag;
     }
 
-    private void FixedUpdate()
+    private void Update()
     {
+        float time = Time.deltaTime;
         Vector3 lookAt = MouseAim.aimingAt;
         lookAt.y = transform.position.y;
         transform.LookAt(lookAt);
@@ -62,7 +76,7 @@ public class PlayerMovement : MonoBehaviour
             
             Vector3 direction = InputController.xAxis * camHolder.right + InputController.zAxis * camHolder.forward;
             direction = direction.normalized;
-            rb.AddForce(direction * accelaration * 100 * Time.fixedDeltaTime);
+            rb.AddForce(direction * accelaration * 100 * time);
             LimitVelocity();
 
             if (Input.GetKey(KeyCode.Space) && rb.velocity.magnitude > .5f)
@@ -76,12 +90,9 @@ public class PlayerMovement : MonoBehaviour
         }
         else
         {
-            rb.AddForce(rollDirection * Time.fixedDeltaTime);
+            rb.AddForce(rollDirection * time);
             
         }
-    }
-    private void Update()
-    {
         if (!rolling)
         {
             LimitVelocity();
@@ -98,8 +109,5 @@ public class PlayerMovement : MonoBehaviour
         speed = Vector2.ClampMagnitude(speed, maxSpeed);
         rb.velocity = new Vector3(speed.x, rb.velocity.y, speed.y);
     }
-
-
-
   
 }
